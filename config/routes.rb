@@ -10,5 +10,12 @@ devise_for :admin, controllers: {
 
 root to: 'public/homes#top'
 
+get 'admin' => 'admin/homes#top'
+
+
+ namespace :admin do
+  resources :items, only: [:index, :new, :show, :edit]
+end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
