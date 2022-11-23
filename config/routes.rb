@@ -14,7 +14,7 @@ get 'admin' => 'admin/homes#top'
 
 
  namespace :admin do
-  resources :items, only: [:index, :new, :show, :edit]
+  resources :items, only: [:index, :new, :show, :edit, :create, :update]
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
