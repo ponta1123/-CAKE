@@ -21,18 +21,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <ul class="navbar-nav ml-auto">
 
-        <% if customer_signed_in? %>
+        <% if current_page?(admin_path) %>
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          マイページ
+          about
          </li>
         </button>
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          <%= link_to "商品一覧", items_path %>
+          <%= link_to "商品一覧", admin_items_path %>
          </li>
         </button>
+
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
           カート
@@ -40,7 +41,7 @@
         </button>
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          ログアウト
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
          </li>
         </button>
 
@@ -56,7 +57,7 @@
     <div class="mr-3">
     <button type="button" class="btn btn-outline-secondary">
      <li class="nav-item">
-      <%= link_to "商品一覧", admin_items_path %>
+      <%= link_to "商品一覧", admin_path %>
      </li>
     </button>
     </div>
