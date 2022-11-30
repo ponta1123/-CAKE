@@ -25,20 +25,28 @@
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          about
-         </li>
-        </button>
-        <button type="button" class="btn btn-outline-secondary">
-         <li class="nav-item">
           <%= link_to "商品一覧", admin_items_path %>
          </li>
         </button>
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          カート
+          <%= link_to "会員一覧", admin_customers_path %>
          </li>
         </button>
+
+        <button type="button" class="btn btn-outline-secondary">
+         <li class="nav-item">
+          注文履歴一覧
+         </li>
+        </button>
+
+        <button type="button" class="btn btn-outline-secondary">
+         <li class="nav-item">
+          ジャンル一覧
+         </li>
+        </button>
+        
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>

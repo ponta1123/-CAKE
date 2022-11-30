@@ -3,10 +3,13 @@
 <% @customers.each do |customer| %>
 
 <p>会員ID</p>
+<span><%= customer.id %></span>
 
 <p>氏名</p>
+<span><%= link_to customer.last_name, admin_customer_path(customer.id) %></span>
 
 <p>メールアドレス</p>
+<span><%= customer.email %></span>
 
 <p>ステータス</p>
 

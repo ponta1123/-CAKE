@@ -4,9 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :order_information
-  belongs_to :cart_item
-  belongs_to :address
+  has_many :order_informations, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
+  has_many :addresses, dependent: :destroy
 
 
 end
