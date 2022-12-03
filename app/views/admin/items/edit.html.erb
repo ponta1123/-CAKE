@@ -13,7 +13,8 @@
 <%= f.text_area :introduction %>
 
 <p>ジャンル</p>
-<%= f.text_field :genre_id %>
+
+<%= f.select :genre_id, @genres.map{|genre|[genre.name,@item.genre_id=genre.id]} %>
 
 <p>税抜価格</p>
 <%= f.text_field :price %>
