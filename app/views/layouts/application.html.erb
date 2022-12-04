@@ -43,10 +43,10 @@
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          ジャンル一覧
+          <%= link_to "ジャンル一覧", admin_genres_path %>
          </li>
         </button>
-        
+
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
