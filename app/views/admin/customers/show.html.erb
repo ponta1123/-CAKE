@@ -27,6 +27,11 @@
 <%= @customer.email %>
 
 <p>会員ステータス</p>
-
+<% if %>
+<% @customer.is_deleted == "true" %>
+<%= "有効" %>
+<% else %>
+<%= "無効" %>
+<% end %>
 <p><%= link_to "編集する", edit_admin_customer_path(@customer.id) %></p>
 

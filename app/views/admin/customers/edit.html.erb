@@ -33,9 +33,9 @@
   <%= f.text_field :email %>
 </p>
 
-<p>会員ステータス
-
-</p>
+<p>会員ステータス</p>
+<%= f.radio_button :is_deleted, true %><%= f.label "有効" %>
+<%= f.radio_button :is_deleted, false %><%= f.label "退会" %>
 
 <%= f.submit '変更を保存' %>
 

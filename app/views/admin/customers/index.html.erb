@@ -12,5 +12,10 @@
 <span><%= customer.email %></span>
 
 <p>ステータス</p>
+<% if customer.is_deleted == "true" %>
+<%= "有効" %>
+<% else %>
+<%= "無効" %>
+<% end %>
 
 <% end %>
