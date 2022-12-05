@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <ul class="navbar-nav ml-auto">
 
-        <% if current_page?(admin_path) %>
+        <% if admin_signed_in? %>
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
@@ -37,7 +37,7 @@
 
         <button type="button" class="btn btn-outline-secondary">
          <li class="nav-item">
-          注文履歴一覧
+          <%= link_to "注文履歴一覧", admin_path %>
          </li>
         </button>
 

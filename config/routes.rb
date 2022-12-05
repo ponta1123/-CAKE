@@ -21,6 +21,7 @@ get 'admin' => 'admin/homes#top'
 
 namespace :public do
   resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrawal]
+  resources :items, only: [:index, :show]
 
 end
 
