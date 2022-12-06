@@ -36,13 +36,13 @@ class Public::SessionsController < Devise::SessionsController
        @customer = Customer.find_by(email: params[:customer][:email])
 
     return if !@customer
-     if @customer.valid_password?(params[:customer][:password])
+     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
 
-         redirect_to customers_sign_up_path
+        redirect_to new_customer_registration_path
      else
 
      end
-
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password])
