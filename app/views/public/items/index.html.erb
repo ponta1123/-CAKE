@@ -5,8 +5,10 @@
 
 <p>商品名</p>
 <div>
+<%= link_to public_item_path(item.id) do %>
 <%= item.name %>
 <%= image_tag item.image, size: '100×100' %>
 <%= item.price %>
+<% end %>
 </div>
 <% end %>

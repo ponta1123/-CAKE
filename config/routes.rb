@@ -11,6 +11,9 @@ devise_for :admin, controllers: {
 root to: 'public/homes#top'
 
 get 'admin' => 'admin/homes#top'
+get '/about' => 'public/homes#about'
+get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+get 'customers/withdrawal' => 'public/customers#withdrawal'
 
 
  namespace :admin do
@@ -20,8 +23,9 @@ get 'admin' => 'admin/homes#top'
  end
 
 namespace :public do
-  resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrawal]
+  resources :customers, only: [:show, :edit, :update]
   resources :items, only: [:index, :show]
+  resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
 
 end
 

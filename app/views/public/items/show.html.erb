@@ -1,0 +1,14 @@
+<%= @item.name %>
+
+<%= @item.introduction %>
+
+<%= @item.price %>
+
+<%= form_with model: @cart, url: public_cart_items_path do |f| %>
+
+<%= f.select :amount, *[1..9] %>
+<%= f.hidden_field :item_id, :value => @item.id.to_s %>
+<%= f.hidden_field :customer_id, :value => current_customer.id %>
+<%= f.submit "カートに入れる" %>
+
+<% end %>
