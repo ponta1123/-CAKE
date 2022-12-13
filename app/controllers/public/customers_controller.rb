@@ -1,10 +1,10 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def index
@@ -12,7 +12,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
+  end
+
+  def withdrawal
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   def update

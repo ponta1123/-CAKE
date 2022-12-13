@@ -13,7 +13,7 @@ root to: 'public/homes#top'
 get 'admin' => 'admin/homes#top'
 get '/about' => 'public/homes#about'
 get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-get 'customers/withdrawal' => 'public/customers#withdrawal'
+patch 'customers/withdrawal' => 'public/customers#withdrawal'
 
 
  namespace :admin do
