@@ -1,18 +1,26 @@
 <p>ショッピングカート</p>
 
+<table>
+  <thead>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+  </thead>
 
+<tbody>
 
-<p>商品名</p>
-<p>単価</p>
-<p>数量</p>
-<p>小計</p>
-
-
-<% @cart_items.each do |cart_item| %>
-<%= cart_item.item.name %>
-<%= cart_item.item.price %>
-<%= cart_item.amount %>
-<%= (cart_item.item.price * 1.1).floor %>
-<%= (cart_item.item.price * 1.1).floor * cart_item.amount %>
-
+ <% @cart_items.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.item.name %></td>
+    <td><%= cart_item.item.with_tax_price %></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.subtotal %></td>
+    <tb><%= link_to "削除", public_cart_item_path(@cart_item.id), method: :delete %></tb>
+    <% @sum += cart_item.subtotal %>
+  </tr>
 <% end %>
+<p>合計</p>
+<%= @sum %>
+</tbody>
+</table>
