@@ -1,4 +1,6 @@
 <p>ショッピングカート</p>
+<p><%= link_to "買い物を続ける", public_items_path %></p>
+<%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete %>
 
 <table>
   <thead>
@@ -13,7 +15,7 @@
  <% @cart_items.each do |cart_item| %>
   <tr>
     <td><%= cart_item.item.name %></td>
-    <td><%= cart_item.item.with_tax_price %></td>
+    <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
     <td><%= cart_item.amount %></td>
     <td><%= cart_item.subtotal %></td>
     <td><%= link_to "削除", public_cart_item_path(cart_item.id), method: :delete %></td>
@@ -21,6 +23,6 @@
   </tr>
 <% end %>
 <p>合計</p>
-<%= @sum %>
+<%= @sum.to_s(:delimited) %>
 </tbody>
 </table>

@@ -14,6 +14,8 @@ get 'admin' => 'admin/homes#top'
 get '/about' => 'public/homes#about'
 get 'customers/unsubscribe' => 'public/customers#unsubscribe'
 patch 'customers/withdrawal' => 'public/customers#withdrawal'
+delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+
 
 
  namespace :admin do
@@ -25,7 +27,7 @@ patch 'customers/withdrawal' => 'public/customers#withdrawal'
 namespace :public do
   resources :customers, only: [:show, :edit, :update]
   resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+  resources :cart_items, only: [:index, :create, :update, :destroy]
 
 end
 

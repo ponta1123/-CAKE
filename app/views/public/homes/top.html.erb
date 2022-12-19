@@ -1,17 +1,36 @@
-<div class="container">
-<p>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。
-</p>
+<div class="container-lg">
+   <div class="row">
+      <div class="genre-col-4">
+       <p class="text-danger">ジャンル検索</p>
+      </div>
+        <div class="col-4-text-end">
+         ようこそ、ながのCAKEへ！<br>
+         このサイトは、ケーキ販売のECサイトになります。<br>
+         会員でない方も商品の閲覧はできますが、<br>
+         購入には会員登録が必要になります。
+        </div>
+   </div>
 
-<h2>新着商品</h2>
-<% @items.each do |item| %>
-<%= item.name %>
-<%= image_tag item.image, size: '100×100' %>
-<%= item.price %>
-<% end %>
+   <h2>新着商品</h2>
 
-<%= link_to "全ての商品を見る", public_items_path %>
+   <div class="row">
 
+   <% @items.each do |item| %>
+
+     <div class="name-col-4">
+      <div class="image">
+       <%= image_tag item.image, width: '50%', height: '50%' %>
+      </div>
+      <div class="name">
+       <%= item.name %>
+      </div>
+      <div class="price">￥
+       <%= item.price %>
+      </div>
+    </div>
+   <% end %>
+   </div>
+    <div class="text-right">
+     <%= link_to "全ての商品を見る", public_items_path %>
+    </div>
 </div>

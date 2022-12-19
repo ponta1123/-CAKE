@@ -1,26 +1,61 @@
-<h3>商品詳細</h3>
-
-<p>商品名</p>
-<%= @item.name %>
-
-<p>商品説明</p>
-<%= @item.introduction %>
-
-<p>ジャンル</p>
-<%= @item.genre.name %>
-
-<p>税込価格(税抜価格)</p>
-<%= @item.price %>
-
-<p>販売ステータス</p>
-<% if @item.is_active == true %>
-<%= "販売中" %>
-<% else %>
-<%= "販売停止中" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="badge bg-light">
+      <h3>商品詳細</h3>
+    </div>
+  </div>
+  <div class="row offset-4 mt-4">
+    <div class="col-4">
+     商品名
+    </div>
+     <div class="col-4">
+      <%= @item.name %>
+     </div>
+  </div>
+  <div class="row offset-4 mt-4">
+    <div class="col-4">
+      商品説明
+    </div>
+    <div class="col-4">
+      <%= @item.introduction %>
+    </div>
+  </div>
+ <div class="row offset-4 mt-4">
+   <div class="col-4">
+      ジャンル
+    </div>
+   <div class="col-4">
+     <%= @item.genre.name %>
+   </div>
+  </div>
+ <div class="row offset-4 mt-4">
+   <div class="col-4">
+      税込価格(税抜価格)
+   </div>
+   <div class="col-4">
+     <%= @item.with_tax_price.to_s(:delimited) %>（<%= @item.price.to_s(:delimited) %>）円
+   </div>
+  </div>
+ <div class="row offset-4 mt-4">
+   <div class="col-4">
+     販売ステータス
+   </div>
+   <div class="col-4">
+     <% if @item.is_active == true %>
+     <div class="text-success">
+      <%= "販売中" %>
+     </div>
+     <% else %>
+     <div class="text-secondary">
+      <%= "販売停止中" %>
+     </div>
+     <% end %>
+    </div>
+ </div>
+</div>
 
 <%= image_tag @item.image, size: "200x200" %>
 
 <div>
-  <%= link_to "編集する", edit_admin_item_path(@item.id) %>
+  <%= link_to "編集する", edit_admin_item_path(@item.id), class: "col-1 offset-5 btn btn-success" %>
 </div>

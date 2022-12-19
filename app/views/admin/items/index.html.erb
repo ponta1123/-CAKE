@@ -1,28 +1,39 @@
-<h3>商品一覧</h3>
-
-
-<% @items.each do |item| %>
-
- <p>商品ID</p>
- <span><%= item.id %></span>
-
- <p>商品名</p>
- <%= link_to item.name, admin_item_path(item.id) %>
-
- <p>税抜価格</p>
- <span><%= item.price %></span>
-
- <p>ジャンル</p>
- <span><%= item.genre.name %></span>
-
- <p>ステータス</p>
- <% if item.is_active == true %>
- <%= "販売中" %>
- <% else %>
- <%= "販売停止中" %>
- <% end %>
-
- <% end %>
- <div>
- <%= link_to "商品登録", new_admin_item_path %>
- </div>
+  <div class="container">
+   <div class="row">
+     <div class="badge bg-light">
+     <h3>商品一覧</h3>
+     </div>
+       <%= link_to "商品登録", new_admin_item_path, class: "col-2 mt-2 offset-8" %>
+     <table class="table">
+      <thead>
+       <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+       </tr>
+      </thead>
+      <tbody>
+       <% @items.each do |item| %>
+        <tr>
+         <td><%= item.id %></td>
+         <td><%= link_to item.name, admin_item_path(item.id) %></td>
+         <td><%= item.price.to_s(:delimited) %></td>
+         <td><%= item.genre.name %></td>
+         <td> <% if item.is_active == true %>
+          <div class="text-success">
+           <%= "販売中" %>
+          </div>
+          <% else %>
+          <div class="text-secondary">
+           <%= "販売停止中" %>
+          </div>
+          <% end %>
+         </td>
+        </tr>
+       <% end %>
+      </tbody>
+     </table>
+   </div>
+  </div>

@@ -1,14 +1,25 @@
-<P>商品一覧</P>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+       <h3>商品一覧(全<%= @items.count %>件)</h3>
+      </div>
+    </div>
+      <div class="row ml-3 mt-3">
+       <% @items.each do |item| %>
 
-<% @items.each do |item| %>
+      <div class="col-3">
+        <%= link_to public_item_path(item.id) do %>
+        <div>
+         <%= image_tag item.image, width: '50%', height: '50%' %>
+        </div>
+        <div>
+         <%= item.name %>
+        </div>
+         <%= item.price.to_s(:delimited) %>
+        <% end %>
+      </div>
 
-
-<p>商品名</p>
-<div>
-<%= link_to public_item_path(item.id) do %>
-<%= item.name %>
-<%= image_tag item.image, size: '100×100' %>
-<%= item.price %>
-<% end %>
-</div>
-<% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
