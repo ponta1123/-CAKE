@@ -28,7 +28,9 @@ namespace :public do
   resources :customers, only: [:show, :edit, :update]
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create, :update, :destroy]
-
+  resources :order_informations, only: [:new, :index, :show]
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  patch '/order_informations/confirm' => 'order_informations#confirm'
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
