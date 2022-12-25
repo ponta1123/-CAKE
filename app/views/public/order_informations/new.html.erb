@@ -7,14 +7,16 @@
   <div class="row mt-4">
     <h4>支払い方法</h4>
   </div>
-  <%= form_with model: @order, url: public_order_informations_confirm_path, method: :patch  do |f| %>
+
+  <%= form_with model: @orderinformation, url: order_informations_confirm_path, method: :post  do |f| %>
+
   <div class="row ml-4">
-    <%= f.radio_button :payment_method, OrderInformation.payment_methods.key(0), {:checked => true} %>
-    <%= f.label :payment_method_credit_card, OrderInformation.payment_methods_i18n[:credit_card] %>
+    <%= f.radio_button :payment, OrderInformation.payments.key(0), {:checked => true} %>
+    <%= f.label :payment_credit_card, OrderInformation.payments_i18n[:credit_card] %>
   </div>
   <div class="row ml-4">
-    <%= f.radio_button :payment_method, OrderInformation.payment_methods.key(1) %>
-    <%= f.label :payment_method_transfer, OrderInformation.payment_methods_i18n[:transfer] %>
+    <%= f.radio_button :payment, OrderInformation.payments.key(1) %>
+    <%= f.label :payment_transfer, OrderInformation.payments_i18n[:transfer] %>
 
   </div>
   <div class="row mt-4">

@@ -24,13 +24,15 @@ delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   resources :customers, only: [:index, :show, :edit, :update]
  end
 
-namespace :public do
+  scope module: :public do
+  post '/order_informations/confirm' => 'order_informations#confirm'
+  get '/order_informations/completion' => 'order_informations#completion'
   resources :customers, only: [:show, :edit, :update]
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create, :update, :destroy]
-  resources :order_informations, only: [:new, :index, :show]
+  resources :order_informations, only: [:new, :index, :show, :create]
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  patch '/order_informations/confirm' => 'order_informations#confirm'
+
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

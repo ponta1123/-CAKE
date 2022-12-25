@@ -2,7 +2,7 @@
   <div class="row badge bg-light ml-5 mt-3">
     <h4>配送先登録/一覧</h4>
   </div>
-  <%= form_with model: @address, url: public_addresses_path do |f| %>
+  <%= form_with model: @address, url: addresses_path do |f| %>
   <div class="row mt-5">
     <%= f.label :郵便番号（ハイフンなし）, class: "col-4" %>
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "00000", class: "col-4 ml-4" %>
@@ -32,8 +32,8 @@
       <td><%= code.address %></td>
       <td width="100"><%= code.name %></td>
       <td width="400">
-        <%= link_to "編集する", edit_public_address_path(code.id), class: "col-3 offset-2 btn btn-success" %>
-        <%= link_to "削除する", public_address_path(code.id), method: :delete, class: "col-3 offset-1 btn btn-danger" %>
+        <%= link_to "編集する", edit_address_path(code.id), class: "col-3 offset-2 btn btn-success" %>
+        <%= link_to "削除する", address_path(code.id), method: :delete, class: "col-3 offset-1 btn btn-danger" %>
       </td>
     </tr>
     <% end %>

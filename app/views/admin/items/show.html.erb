@@ -52,9 +52,12 @@
      <% end %>
     </div>
  </div>
+ <div class="row ml-4 mb-4">
+   <%= image_tag @item.image, size: "200x200" %>
+ </div>
 </div>
 
-<%= image_tag @item.image, size: "200x200" %>
+
 
 <div>
   <%= link_to "編集する", edit_admin_item_path(@item.id), class: "col-1 offset-5 btn btn-success" %>
