@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-3 badge bg-light">
+      <h5>注文履歴詳細</h5>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-7">
+      <h4>注文情報</h4>
+      <table border width="100%">
+        <tr>
+          <th bgcolor="gainsboro">注文日</th>
+          <td><%= @orderinformation.created_at %></td>
+        </tr>
+        <tr>
+          <th bgcolor="gainsboro">配送先</th>
+          <td>
+            <div>
+              〒<%= @orderinformation.postal_code %>
+            </div>
+            <div>
+              <%= @orderinformation.address %>
+            </div>
+            <div>
+              <%= @orderinformation.name %>
+            </div>
+            </td>
+        </tr>
+        <tr>
+          <th bgcolor="gainsboro">支払い方法</th>
+          <td><%= @orderinformation.payment %></td>
+        </tr>
+        <tr>
+          <th bgcolor="gainsboro">ステータス</th>
+          <td>未実装</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-5">
+      <h4>請求情報</h4>
+      <table border width="50%">
+        <tr>
+          <th bgcolor="gainsboro">商品合計</th>
+          <td>
+            <% @total = @orderinformation.billing_amount - @orderinformation.postage %>
+            <%= @total.to_s(:delimited) %>
+          </td>
+        </tr>
+        <tr>
+          <th bgcolor="gainsboro">送料</th>
+          <td><%= @orderinformation.postage %></td>
+        </tr>
+        <tr>
+          <th bgcolor="gainsboro">ご請求額</th>
+          <td><%= @orderinformation.billing_amount.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <h4>注文内容</h4>
+      <table border width="70%" >
+        <thead>
+        <tr bgcolor="gainsboro">
+          <th>商品</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @orderinformations.each do |information| %>
+        <tr>
+          <td><%= information.item.name %> </td>
+          <td><%= information.purchase_price.to_s(:delimited) %></td>
+          <td><%= information.amount %></td>
+          <td>
+            <% @sum = information.purchase_price*information.amount %>
+            <%= @sum.to_s(:delimited) %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

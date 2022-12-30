@@ -4,6 +4,16 @@ class Public::OrderInformationsController < ApplicationController
     @orderinformation = OrderInformation.new
   end
 
+  def index
+    @orderinformations = current_customer.order_informations
+  end
+
+  def show
+    @orderinformation = OrderInformation.find(params[:id])
+    @orderinformations = @orderinformation.order_products
+    #@orderproduct = OrderProduct.find(params[:id])
+  end
+
   def confirm
     @orderinformation = OrderInformation.new(orderinformation_params)
     @orderinformation.customer_id = current_customer.id
