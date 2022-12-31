@@ -38,13 +38,20 @@
     </tr>
   </table>
   </div>
-
   <div class="row ml-3 mt-5">
-    <h5>配送先</h5>
-    <%= link_to "一覧を見る", addresses_path, class: "offset-1 col-2 btn btn-primary" %>
+    <div class="col-4">
+     <h5>配送先</h5>
+    </div>
+    <div class="col-6">
+     <%= link_to "一覧を見る", addresses_path, class: "col-4 btn btn-primary" %>
+    </div>
   </div>
   <div class="row ml-3 mt-3">
-    <h5>注文履歴</h5>
-    <%= link_to "一覧を見る", order_informations_path, class: "offset-1 col-2 btn btn-primary" %>
+    <div class="col-4">
+     <h5>注文履歴</h5>
+    </div>
+    <div class="col-6">
+     <%= link_to "一覧を見る", order_informations_path, class: "col-4 btn btn-primary" %>
+    </div>
   </div>
 </div>

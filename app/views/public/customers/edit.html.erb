@@ -18,7 +18,7 @@
   </div>
   <div class="row mt-4">
     <div class="col-2 ml-4">
-      <h4>フリガナ</h4>
+      <hp>フリガナ</p>
     </div>
     <div class="col-3 ml-2">
       <%= f.text_field :last_name_kana %>
@@ -27,30 +27,50 @@
       <%= f.text_field :first_name_kana %>
     </div>
   </div>
-
+  <div class="row mt-4">
+    <div class="col-2 ml-4">
+      <p>郵便番号</p>
+    </div>
+    <div class="col-3 ml-2">
+      <%= f.text_field :postal_code %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-2 ml-4">
+      <p>住所</p>
+    </div>
+    <div class="col-3 ml-2">
+      <%= f.text_area :address %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-2 ml-4">
+      <p>電話番号</p>
+    </div>
+    <div class="col-3 ml-2">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-2 ml-4">
+      <p>メールアドレス</p>
+    </div>
+    <div class="col-3 ml-2">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-6">
+      <%= f.submit '編集内容を保存', class: "col-4 btn btn-success" %>
+    </div>
+    <div class="col-5">
+      <%= link_to "退会する", customers_unsubscribe_path, class: "col-4 btn btn-danger" %>
+    </div>
+  </div>
 </div>
 
 
 
 
-<p>郵便番号
-<%= f.text_field :postal_code %>
-</p>
-
-<p>住所
-<%= f.text_area :address %>
-</p>
-
-<p>電話番号
-<%= f.text_field :telephone_number %>
-</p>
-
-<p>メールアドレス
-<%= f.text_field :email %>
-</p>
-
-<%= f.submit '編集内容を保存' %>
-
-<%= link_to "退会する", customers_unsubscribe_path %>
 
 <% end %>
