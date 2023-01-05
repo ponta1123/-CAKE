@@ -1,7 +1,13 @@
 class Public::ItemsController < ApplicationController
 
   def index
-   @items = Item.all
+    if params[:genre_seach]
+      @genre = Genre.find(params[:genre_seach])
+      @items = @genre.items
+    else
+     @items = Item.all
+    end
+   @genres = Genre.all
   end
 
   def show

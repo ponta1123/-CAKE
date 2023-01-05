@@ -1,12 +1,31 @@
   <div class="container">
     <div class="row">
+      <div class="col-2">
+        <table>
+          <thead>
+            <th>ジャンル一覧</th>
+          </thead>
+            <% @genres.each do |genre| %>
+          <tbody>
+            <td>
+              <%= link_to items_path(genre_seach: genre.id) do %>
+              <%= genre.name %>
+              <% end %>
+              </td>
+          </tbody>
+            <% end %>
+        </table>
+      </div>
       <div class="col">
-       <h3>商品一覧(全<%= @items.count %>件)</h3>
+       <% if @genre %>
+        <h3><%= @genre.name %>(全<%= @items.count %>件)</h3>
+       <% else %>
+        <h3>商品一覧(全<%= @items.count %>件)</h3>
+       <% end %>
       </div>
     </div>
-      <div class="row ml-3 mt-3">
+      <div class="row offset-2 mt-3">
        <% @items.each do |item| %>
-
       <div class="col-3">
         <%= link_to item_path(item.id) do %>
         <div>
@@ -18,8 +37,6 @@
          <%= item.price.to_s(:delimited) %>
         <% end %>
       </div>
-
       <% end %>
       </div>
     </div>
-  </div>

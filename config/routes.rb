@@ -27,7 +27,9 @@ delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
   scope module: :public do
   post '/order_informations/confirm' => 'order_informations#confirm'
   get '/order_informations/completion' => 'order_informations#completion'
-  resources :customers, only: [:show, :edit, :update]
+  get '/customers/my_page' => 'customers#show'
+  get '/customers/information/edit' => 'customers#edit'
+  patch '/customers/information' => 'customers#update'
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create, :update, :destroy]
   resources :order_informations, only: [:new, :index, :show, :create]
