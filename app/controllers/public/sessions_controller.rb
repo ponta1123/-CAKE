@@ -27,7 +27,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :customer_stste, only: [:create]
 
   def after_sign_in_path_for(resource)
-    customers_my_page_path
+    root_path
   end
 
   protected

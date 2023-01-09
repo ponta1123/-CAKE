@@ -8,14 +8,18 @@
             <tbody>
               <% @genres.each do |genre| %>
               <tr>
-              <td><%= genre.name %></td>
+              <td>
+                <%= link_to items_path(genre_seach: genre.id) do %>
+                <%= genre.name %>
+                <% end %>
+                </td>
               </tr>
               <% end %>
             </tbody>
           </table>
         </div>
         <div class="col-lg-3">
-          <%= image_tag @item.image, width: '60%', height: '80%' %>
+          <%= image_tag @item.image, size: "100x100" %>
         </div>
         <div class="col-lg-3">
           <%= @item.name %>
@@ -26,11 +30,13 @@
             ￥<%= @item.with_tax_price %>（税込）
           </div>
           <div class="col mt-4">
-            <%= form_with model: @cart, url: cart_items_path do |f| %>
-            <%= f.select :amount, *[1..9] %>
-            <%= f.hidden_field :item_id, :value => @item.id.to_s %>
-            <%= f.hidden_field :customer_id, :value => current_customer.id %>
-            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+            <% if customer_signed_in? %>
+             <%= form_with model: @cart, url: cart_items_path do |f| %>
+             <%= f.select :amount, *[1..9] %>
+             <%= f.hidden_field :item_id, :value => @item.id.to_s %>
+             <%= f.hidden_field :customer_id, :value => current_customer.id %>
+             <%= f.submit "カートに入れる", class: "btn btn-success" %>
+             <% end %>
             <% end %>
           </div>
         </div>

@@ -3,9 +3,9 @@ class Public::ItemsController < ApplicationController
   def index
     if params[:genre_seach]
       @genre = Genre.find(params[:genre_seach])
-      @items = @genre.items
+      @items = @genre.items.page(params[:page])
     else
-     @items = Item.all
+     @items = Item.page(params[:page])
     end
    @genres = Genre.all
   end
@@ -13,7 +13,13 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @cart = CartItem.new
-    @genres = Genre.all
+    if params[:genre_seach]
+     @genre = Genre.find(params[:genre_seach])
+     @items = @genre.items.page(params[:page])
+     redirect_to items_path
+    else
+     @genres = Genre.all
+    end
   end
 
  private
