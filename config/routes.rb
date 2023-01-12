@@ -19,6 +19,7 @@ delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
 
  namespace :admin do
+  resources :order_informations, only: [:show]
   resources :items, only: [:index, :new, :show, :edit, :create, :update]
   resources :genres, only: [:index, :edit, :update, :create]
   resources :customers, only: [:index, :show, :edit, :update]

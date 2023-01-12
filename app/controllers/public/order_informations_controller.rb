@@ -5,7 +5,7 @@ class Public::OrderInformationsController < ApplicationController
   end
 
   def index
-    @orderinformations = current_customer.order_informations
+      @orderinformations = current_customer.order_informations
   end
 
   def show
