@@ -1,0 +1,15 @@
+<div class="item-container">
+  <% items.each do |item| %>
+    <div class="item-box">
+    <%= link_to item_path(item.id) do %>
+    <div>
+    <%= image_tag item.image, size: "100x100" %>
+    </div>
+    <div>
+    <%= item.name %>
+    </div>
+    <%= item.price.to_s(:delimited) %>
+    <% end %>
+    </div>
+  <% end %>
+</div>

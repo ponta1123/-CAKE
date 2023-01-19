@@ -1,1 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
+
+.item-container .item-box {
+　width: 100%;
+　margin-left: 20px;
+}
